@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: terra-store
+  config:
+    import:
+    - optional:configserver:http://localhost:10002
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/terradb
+    username: postgres
+    password: postgresql
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: 10005
+  
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:10001/eureka/
+  

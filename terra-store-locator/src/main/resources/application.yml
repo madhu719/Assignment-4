@@ -1,0 +1,17 @@
+server:
+  port: 10006
+  
+spring:
+  application:
+    name: terra-store-locator
+  config:
+    import:
+    - optional:configserver:http://localhost:10002
+    
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:10001/eureka/
+    

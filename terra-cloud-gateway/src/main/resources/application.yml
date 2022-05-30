@@ -1,0 +1,24 @@
+server:
+  port: 10000
+spring:
+  application:
+    name: terra-gateway
+
+  cloud:
+    gateway:
+      routes:
+        - id: terra-package-delivery-service
+          uri: lb://terra-package-delivery-service
+          predicates:
+           - Path=/api/**
+    
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:10001/eureka/
+
+  instance:
+    hostname: localhost
+    
